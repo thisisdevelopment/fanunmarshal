@@ -1,6 +1,7 @@
 - [README IS WIP](#readme-is-wip)
 - [Introduction](#introduction)
 - [Basic usage with slice response](#basic-usage-with-slice-response)
+- [Benchmarks](#benchmarks)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -81,7 +82,58 @@ func withChannel() {
 
 
 
+# Benchmarks
 
+Total json size 1.4mb. 1000 lines
+
+Standard sequencial unmarshalling
+
+```
+fanunmarshal on  master [!?] via 🐹 v1.18 took 34s 
+❯ go test -benchtime=1s -bench=. -count=10 -cpu=4
+goos: darwin
+goarch: arm64
+pkg: github.com/thisisdevelopment/fanunmarshal
+
+BenchmarkPlainUnMarshal-4                    141           8334686 ns/op
+BenchmarkPlainUnMarshal-4                    141           8339650 ns/op
+BenchmarkPlainUnMarshal-4                    141           8338255 ns/op
+BenchmarkPlainUnMarshal-4                    142           8351871 ns/op
+BenchmarkPlainUnMarshal-4                    142           8369517 ns/op
+BenchmarkPlainUnMarshal-4                    142           8347529 ns/op
+BenchmarkPlainUnMarshal-4                    142           8333782 ns/op
+BenchmarkPlainUnMarshal-4                    142           8403951 ns/op
+BenchmarkPlainUnMarshal-4                    142           8371589 ns/op
+BenchmarkPlainUnMarshal-4                    142           8389560 ns/op
+```
+Using fanunmarshall 10 workers stdlib json
+```
+BenchmarkWithLibSlice_stdlib_10-4            336           3573922 ns/op
+BenchmarkWithLibSlice_stdlib_10-4            337           3572657 ns/op
+BenchmarkWithLibSlice_stdlib_10-4            338           3607899 ns/op
+BenchmarkWithLibSlice_stdlib_10-4            336           3579343 ns/op
+BenchmarkWithLibSlice_stdlib_10-4            336           3576072 ns/op
+BenchmarkWithLibSlice_stdlib_10-4            336           3568089 ns/op
+BenchmarkWithLibSlice_stdlib_10-4            333           3555157 ns/op
+BenchmarkWithLibSlice_stdlib_10-4            333           3539808 ns/op
+BenchmarkWithLibSlice_stdlib_10-4            336           3645658 ns/op
+BenchmarkWithLibSlice_stdlib_10-4            333           3553782 ns/op
+```
+Using fanunmarshall 10 workers jsoniter lib
+```
+BenchmarkWithLibSlice_jsoniter_10-4          501           2469929 ns/op
+BenchmarkWithLibSlice_jsoniter_10-4          474           2497836 ns/op
+BenchmarkWithLibSlice_jsoniter_10-4          469           2650896 ns/op
+BenchmarkWithLibSlice_jsoniter_10-4          502           2641072 ns/op
+BenchmarkWithLibSlice_jsoniter_10-4          512           2712920 ns/op
+BenchmarkWithLibSlice_jsoniter_10-4          430           2592961 ns/op
+BenchmarkWithLibSlice_jsoniter_10-4          433           2679012 ns/op
+BenchmarkWithLibSlice_jsoniter_10-4          436           2694356 ns/op
+BenchmarkWithLibSlice_jsoniter_10-4          423           2571725 ns/op
+BenchmarkWithLibSlice_jsoniter_10-4          480           2772881 ns/op
+
+PASS
+```
 
 
 # Contributing 
