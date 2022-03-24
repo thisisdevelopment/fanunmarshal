@@ -17,7 +17,7 @@ type fanUnMarshal struct {
 	useStdLib     bool
 }
 
-// New instance
+//New instance
 func New() IFanUnMarshal {
 	return &fanUnMarshal{
 		amountWorkers: DefaultWorkers,
@@ -26,7 +26,7 @@ func New() IFanUnMarshal {
 	}
 }
 
-// WithWorkers set the amount of workers to work on your list
+//WithWorkers set the amount of workers to work on your list
 func (f *fanUnMarshal) WithWorkers(workers uint) IFanUnMarshal {
 	if workers == 0 {
 		workers = DefaultWorkers
@@ -35,13 +35,13 @@ func (f *fanUnMarshal) WithWorkers(workers uint) IFanUnMarshal {
 	return f
 }
 
-// DisableAutoScaleDown, disable scaling down the max amount of workers based on your list amount
+//DisableAutoScaleDown, disable scaling down the max amount of workers based on your list amount
 func (f *fanUnMarshal) DisableAutoScaleDown() IFanUnMarshal {
 	f.autoScaleDown = false
 	return f
 }
 
-// WithUseJsonIter use jsoniter lib instead of default std lib json package
+//WithUseJsonIter use jsoniter lib instead of default std lib json package
 func (f *fanUnMarshal) WithUseJsonIter() IFanUnMarshal {
 	f.useStdLib = false
 	return f

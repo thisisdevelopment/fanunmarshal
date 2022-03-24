@@ -11,6 +11,6 @@ type IFanUnMarshal interface {
 	UnMarshalSlice(data [][]byte, expected interface{}) []interface{}
 	// MakeChan make a channel based of a slice of byteslices
 	MakeChan(data [][]byte) <-chan []byte
-	// UnMarshalChan unmarshal a slice, returning the slice
+	// UnMarshalChan unmarshal a channel, returning a channel
 	UnMarshalChan(pipe <-chan []byte, expected interface{}, dataLength *int) <-chan interface{}
 }

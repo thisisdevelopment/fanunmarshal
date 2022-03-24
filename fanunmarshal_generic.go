@@ -11,6 +11,7 @@ import (
 
 var jsonntr = jsoniter.ConfigCompatibleWithStandardLibrary
 
+//MakeChan creates a channel from input byte slice
 func (f *fanUnMarshal) MakeChan(data [][]byte) <-chan []byte {
 	var out = make(chan []byte)
 	go func() {
