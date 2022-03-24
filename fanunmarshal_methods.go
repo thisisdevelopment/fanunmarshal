@@ -1,7 +1,7 @@
 package fanunmarshal
 
 // UnMarshalSlice unmarshal a slice of []byte slices, returning the a slice
-func (f *fanMarshal) UnMarshalSlice(data [][]byte, expected interface{}) []interface{} {
+func (f *fanUnMarshal) UnMarshalSlice(data [][]byte, expected interface{}) []interface{} {
 	// make channel from slice
 	var (
 		pipe          = make(chan []byte)
@@ -30,7 +30,7 @@ func (f *fanMarshal) UnMarshalSlice(data [][]byte, expected interface{}) []inter
 	}
 	return out
 }
-func (f *fanMarshal) UnMarshalChan(pipe <-chan []byte, expected interface{}, dataLength *int) <-chan interface{} {
+func (f *fanUnMarshal) UnMarshalChan(pipe <-chan []byte, expected interface{}, dataLength *int) <-chan interface{} {
 	// make channel from slice
 	var (
 		workers       = []<-chan interface{}{}
