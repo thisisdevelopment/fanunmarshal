@@ -33,7 +33,6 @@ func TestNewWithSlice(t *testing.T) {
 	for _, d := range data {
 		a := d.(*SomeData)
 		res[a.Data] = true
-		// spew.Dump(d)
 	}
 
 	if len(res) != len(testdata) {
@@ -59,7 +58,6 @@ func TestNewWithChannel(t *testing.T) {
 	for d := range outputChan {
 		a := d.(*SomeData)
 		res[a.Data] = true
-		// spew.Dump(d)
 	}
 
 	if len(res) != len(testdata) {
