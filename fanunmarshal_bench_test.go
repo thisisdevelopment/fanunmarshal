@@ -1,9 +1,11 @@
-package fanunmarshal
+package fanunmarshal_test
 
 import (
 	"encoding/json"
 	"os"
 	"testing"
+
+	"github.com/thisisdevelopment/fanunmarshal"
 )
 
 type testData []testObj
@@ -70,7 +72,7 @@ func BenchmarkWithLibSlice_stdlib_10(b *testing.B) {
 	b.StopTimer()
 	data := generateJsonL()
 
-	fm := New().WithWorkers(10)
+	fm := fanunmarshal.New().WithWorkers(10)
 
 	b.StartTimer()
 
@@ -86,7 +88,7 @@ func BenchmarkWithLibSlice_stdlib_100(b *testing.B) {
 	b.StopTimer()
 	data := generateJsonL()
 
-	fm := New().WithWorkers(100)
+	fm := fanunmarshal.New().WithWorkers(100)
 
 	b.StartTimer()
 
@@ -102,7 +104,7 @@ func BenchmarkWithLibSlice_jsoniter_10(b *testing.B) {
 	b.StopTimer()
 	data := generateJsonL()
 
-	fm := New().WithWorkers(10).WithUseJsonIter()
+	fm := fanunmarshal.New().WithWorkers(10).WithUseJsonIter()
 
 	b.StartTimer()
 
@@ -118,7 +120,7 @@ func BenchmarkWithLibSlice_jsoniter_100(b *testing.B) {
 	b.StopTimer()
 	data := generateJsonL()
 
-	fm := New().WithWorkers(100).WithUseJsonIter()
+	fm := fanunmarshal.New().WithWorkers(100).WithUseJsonIter()
 	b.StartTimer()
 
 	for i := 0; i < b.N; i++ {

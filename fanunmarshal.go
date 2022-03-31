@@ -15,7 +15,7 @@ const (
 	UseJsoniter = false
 )
 
-type fanUnMarshal struct {
+type FanUnMarshal struct {
 	amountWorkers uint
 	autoScaleDown bool
 	useStdLib     bool
@@ -23,7 +23,7 @@ type fanUnMarshal struct {
 
 //New instance
 func New() IFanUnMarshal {
-	return &fanUnMarshal{
+	return &FanUnMarshal{
 		amountWorkers: DefaultWorkers,
 		autoScaleDown: AutoScaleDown,
 		useStdLib:     UseStdLib,
@@ -31,7 +31,7 @@ func New() IFanUnMarshal {
 }
 
 // WithWorkers set the amount of workers to work on your list
-func (f *fanUnMarshal) WithWorkers(workers uint) IFanUnMarshal {
+func (f *FanUnMarshal) WithWorkers(workers uint) IFanUnMarshal {
 	if workers == 0 {
 		workers = DefaultWorkers
 	}
@@ -40,13 +40,13 @@ func (f *fanUnMarshal) WithWorkers(workers uint) IFanUnMarshal {
 }
 
 // DisableAutoScaleDown, disable scaling down the max amount of workers based on your list amount
-func (f *fanUnMarshal) DisableAutoScaleDown() IFanUnMarshal {
+func (f *FanUnMarshal) DisableAutoScaleDown() IFanUnMarshal {
 	f.autoScaleDown = false
 	return f
 }
 
 // WithUseJsonIter use jsoniter lib instead of default std lib json package
-func (f *fanUnMarshal) WithUseJsonIter() IFanUnMarshal {
+func (f *FanUnMarshal) WithUseJsonIter() IFanUnMarshal {
 	f.useStdLib = false
 	return f
 }

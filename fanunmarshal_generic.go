@@ -12,7 +12,7 @@ import (
 var jsonntr = jsoniter.ConfigCompatibleWithStandardLibrary
 
 //MakeChan creates a channel from input byte slice
-func (f *fanUnMarshal) MakeChan(data [][]byte) <-chan []byte {
+func (f *FanUnMarshal) MakeChan(data [][]byte) <-chan []byte {
 	var out = make(chan []byte)
 	go func() {
 		for _, d := range data {
@@ -25,7 +25,7 @@ func (f *fanUnMarshal) MakeChan(data [][]byte) <-chan []byte {
 
 }
 
-func (f *fanUnMarshal) fanIn(chs ...<-chan interface{}) <-chan interface{} {
+func (f *FanUnMarshal) fanIn(chs ...<-chan interface{}) <-chan interface{} {
 
 	var (
 		out = make(chan interface{})
@@ -50,7 +50,7 @@ func (f *fanUnMarshal) fanIn(chs ...<-chan interface{}) <-chan interface{} {
 
 }
 
-func (f *fanUnMarshal) unmarshal(ch <-chan []byte, expected interface{}) <-chan interface{} {
+func (f *FanUnMarshal) unmarshal(ch <-chan []byte, expected interface{}) <-chan interface{} {
 	var out = make(chan interface{})
 	go func() {
 		for d := range ch {
