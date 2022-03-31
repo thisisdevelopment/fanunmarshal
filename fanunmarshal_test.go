@@ -68,7 +68,7 @@ func TestNewWithChannel(t *testing.T) {
 
 }
 
-func ExampleIFanUnMarshal_UnMarshalSlice() {
+func ExampleIFanUnMarshal_UnMarshalSlice_example2() {
 
 	// setup receiver struct
 	type SomeData struct {
@@ -108,7 +108,7 @@ func ExampleIFanUnMarshal_UnMarshalSlice() {
 	// &{Data:3 Other:161803398875}
 }
 
-func ExampleIFanUnMarshal_UnMarshalChan() {
+func ExampleIFanUnMarshal_UnMarshalChan_example1() {
 
 	// setup receiver struct
 	type SomeData struct {
@@ -124,9 +124,7 @@ func ExampleIFanUnMarshal_UnMarshalChan() {
 	}
 
 	// we expect slice of SomeData
-
 	var (
-
 		// setup expected what we receive in the output channel
 		expected = SomeData{}
 		// setup instance
