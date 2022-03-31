@@ -5,6 +5,10 @@
 - [Contributing](#contributing)
 - [License](#license)
 
+[![go report card](https://goreportcard.com/badge/github.com/thisisdevelopment/fanunmarshal "go report card")](https://goreportcard.com/report/github.com/thisisdevelopment/fanunmarshal)
+[![CircleCI](https://circleci.com/gh/thisisdevelopment/fanunmarshal.svg?style=svg)](https://circleci.com/gh/thisisdevelopment/fanunmarshal)
+[![GoDoc](https://godoc.org/github.com/thisisdevelopment/fanunmarshal?status.svg)](https://godoc.org/github.com/thisisdevelopment/fanunmarshal)
+
 # README IS WIP 
 
 # Introduction
