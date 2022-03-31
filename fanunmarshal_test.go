@@ -68,7 +68,7 @@ func TestNewWithChannel(t *testing.T) {
 
 }
 
-func ExampleIFanUnMarshal_UnMarshalSlice_example2() {
+func ExamplefanUnMarshal_UnMarshalSlice() {
 
 	// setup receiver struct
 	type SomeData struct {
@@ -108,7 +108,7 @@ func ExampleIFanUnMarshal_UnMarshalSlice_example2() {
 	// &{Data:3 Other:161803398875}
 }
 
-func ExampleIFanUnMarshal_UnMarshalChan_example1() {
+func ExamplefanUnMarshal_UnMarshalChan() {
 
 	// setup receiver struct
 	type SomeData struct {
